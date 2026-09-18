@@ -1,0 +1,93 @@
+class Solution {
+public:
+    string intToRoman(int num) {
+        long long n=0;
+        long long numb=num;
+        long long rem;
+        string ans="";
+        while(numb>0){
+          numb=numb/10;
+          n++;
+        }
+        for(int i=n;i>=1;i--){
+        if(i==4){
+           numb=num/1000;
+           if(numb==1)
+            ans+='M';
+            if(numb==2)
+            ans+="MM";
+            if(numb==3)
+            ans+="MMM";
+             }
+        if(i==3){
+            rem=num%1000;
+            numb=rem/100;
+            if(numb==1)
+            ans+='C';
+            if(numb==2)
+            ans+="CC";
+            if(numb==3)
+            ans+="CCC";
+            if(numb==4)
+            ans+="CD";
+            if(numb==5)
+            ans+='D';
+            if(numb==6)
+            ans+="DC";
+            if(numb==7)
+            ans+="DCC";
+            if(numb==8)
+            ans+="DCCC";
+            if(numb==9)
+            ans+="CM";
+        }
+        if(i==2){
+            rem=num%1000;
+            rem=rem%100;
+            numb=rem/10;
+            if(numb==1)
+            ans+='X';
+            if(numb==2)
+            ans+="XX";
+            if(numb==3)
+            ans+="XXX";
+            if(numb==4)
+            ans+="XL";
+            if(numb==5)
+            ans+='L';
+            if(numb==6)
+            ans+="LX";
+            if(numb==7)
+            ans+="LXX";
+            if(numb==8)
+            ans+="LXXX";
+            if(numb==9)
+            ans+="XC";
+        }
+        if(i==1){
+             rem=num%1000;
+            rem=rem%100;
+            numb=rem%10;
+            if(numb==1)
+            ans+='I';
+            if(numb==2)
+            ans+="II";
+            if(numb==3)
+            ans+="III";
+            if(numb==4)
+            ans+="IV";
+            if(numb==5)
+            ans+='V';
+            if(numb==6)
+            ans+="VI";
+            if(numb==7)
+            ans+="VII";
+            if(numb==8)
+            ans+="VIII";
+            if(numb==9)
+            ans+="IX";
+        }
+    }  
+    return ans;
+    }
+};
